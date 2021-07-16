@@ -18,3 +18,24 @@ test('I can start a game', async () => {
     await button.click();
     
 });
+
+describe('places Xs in squares',async () => {
+    test('Places X in top left', async () => {
+        let topLeftCell = await (await driver).findElement(By.id('cell-0'));
+        await topLeftCell.click();
+        let topLeftCellText = await topLeftCell.getText();
+        expect(topLeftCellText).toContain('X')
+    })
+    test('Places X in top right', async () => {
+        let topRightCell = await (await driver).findElement(By.id('cell-2'));
+        await topRightCell.click();
+        let topRightCellText = await topRightCell.getText();
+        expect(topRightCellText).toContain('X')
+    })
+    test('Places X in bottom right', async () => {
+        let bottomRightCell = await (await driver).findElement(By.id('cell-8'));
+        await bottomRightCell.click();
+        let bottomRightCellText = await bottomRightCell.getText();
+        expect(bottomRightCellText).toContain('X')
+    })
+})
