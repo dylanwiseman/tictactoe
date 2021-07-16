@@ -39,3 +39,8 @@ describe('places Xs in squares',async () => {
         expect(bottomRightCellText).toContain('X')
     })
 })
+
+test('Checks if computer plays an O', async () => {
+    let oppCell = await (await driver).findElement(By.id('cell-1')).getText();
+    expect(oppCell).toContain('O' || 'o')
+})
